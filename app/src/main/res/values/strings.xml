@@ -1,3 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Court Counter</string>
+    <string name="zero_int">0</string>
+    <string name="addition">+</string>
+    <string name="shots">shots</string>
+    <string name="shots_target">on target</string>
+    <string name="fouls">fouls</string>
+    <string name="corners">corners</string>
+    <string name="off_sides">off-sides</string>
+    <string name="reset">reset</string>
+    <string name="logo_description_bayern">Bayern Munich logo</string>
+    <string name="logo_description_real">Real Madrid logo</string>
 </resources>
