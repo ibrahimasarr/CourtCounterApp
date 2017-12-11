@@ -1,5 +1,6 @@
 package com.example.android.courtcounter;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -55,6 +56,67 @@ public class MainActivity extends AppCompatActivity {
      */
     int offSidesTeamB = 0;
 
+    /**
+     * @param savedInstanceState saves data on orientation changes
+     */
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+
+        savedInstanceState.putInt("TeamAScore", scoreTeamA);
+        savedInstanceState.putInt("TeamBScore", scoreTeamB);
+        savedInstanceState.putInt("TeamAShots", shotsTeamA);
+        savedInstanceState.putInt("TeamBShots", shotsTeamB);
+        savedInstanceState.putInt("TeamAOnTarget", shotsOnTargetTeamA);
+        savedInstanceState.putInt("TeamBOnTarget", shotsOnTargetTeamB);
+        savedInstanceState.putInt("TeamAFouls", foulsTeamA);
+        savedInstanceState.putInt("TeamBFouls", foulsTeamB);
+        savedInstanceState.putInt("TeamACorners", cornersTeamA);
+        savedInstanceState.putInt("TeamBCorners", cornersTeamB);
+        savedInstanceState.putInt("TeamAOffsides", offSidesTeamA);
+        savedInstanceState.putInt("TeamBOffsides", offSidesTeamB);
+        super.onSaveInstanceState(savedInstanceState);
+
+    }
+
+
+    /**
+     * Restore data upon orientation change
+     */
+
+    @Override
+    protected void onRestoreInstanceState(Bundle saveInstanceState) {
+        super.onRestoreInstanceState(saveInstanceState);
+
+        if (saveInstanceState != null) {
+            scoreTeamA = saveInstanceState.getInt("TeamAScore");
+            scoreTeamB = saveInstanceState.getInt("TeamBScore");
+            shotsTeamA = saveInstanceState.getInt("TeamAShots");
+            shotsTeamB = saveInstanceState.getInt("TeamBShots");
+            shotsOnTargetTeamA = saveInstanceState.getInt("TeamAOnTarget");
+            shotsOnTargetTeamB = saveInstanceState.getInt("TeamBOnTarget");
+            foulsTeamA = saveInstanceState.getInt("TeamAFouls");
+            foulsTeamB = saveInstanceState.getInt("TeamBFouls");
+            cornersTeamA = saveInstanceState.getByte("TeamACorners");
+            cornersTeamB = saveInstanceState.getByte("TeamBCorners");
+            offSidesTeamA = saveInstanceState.getInt("TeamAOffsides");
+            offSidesTeamB = saveInstanceState.getInt("TeamBOffsides");
+        }
+
+        displayScoreTeamA(scoreTeamA);
+        displayScoreTeamB(scoreTeamB);
+        displayShotsTeamA(shotsTeamA);
+        displayShotsTeamB(shotsTeamB);
+        displayOnTargetTeamA(shotsOnTargetTeamA);
+        displayOnTargetTeamB(shotsOnTargetTeamB);
+        displayFoulsTeamA(foulsTeamA);
+        displayFoulsTeamB(foulsTeamB);
+        displayCornersTeamA(cornersTeamA);
+        displayCornersTeamB(cornersTeamB);
+        displayOffSidesTeamA(offSidesTeamA);
+        displayOffSidesTeamB(offSidesTeamB);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

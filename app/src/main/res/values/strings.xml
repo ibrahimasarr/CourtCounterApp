@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Court Counter</string>
+    <string name="app_title">MATCH STATS BY FOOTSTATS</string>
     <string name="zero_int">0</string>
     <string name="addition">+</string>
     <string name="shots">shots</string>
