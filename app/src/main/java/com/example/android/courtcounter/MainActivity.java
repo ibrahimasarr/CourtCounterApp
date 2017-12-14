@@ -3,6 +3,7 @@ package com.example.android.courtcounter;
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
@@ -80,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
 
     /**
      * Restore data upon orientation change
@@ -141,7 +148,10 @@ public class MainActivity extends AppCompatActivity {
      * Increases Team A score by 1 point.
      */
     public void addOneForTeamA(View view) {
-        scoreTeamA = scoreTeamA + 1;
+        if (scoreTeamA <= shotsOnTargetTeamA && shotsOnTargetTeamA != 0 && scoreTeamA + 1 <= shotsOnTargetTeamA)
+            scoreTeamA = scoreTeamA + 1;
+        else
+            return;
         displayScoreTeamA(scoreTeamA);
     }
 
@@ -151,7 +161,10 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void addOneForTeamB(View view) {
-        scoreTeamB = scoreTeamB + 1;
+        if (scoreTeamB <= shotsOnTargetTeamB && shotsOnTargetTeamB != 0 && scoreTeamB + 1 <= shotsOnTargetTeamB)
+            scoreTeamB = scoreTeamB + 1;
+        else
+            return;
         displayScoreTeamB(scoreTeamB);
     }
 
@@ -179,7 +192,11 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void addOnTargetForTeamA(View view) {
-        shotsOnTargetTeamA = shotsOnTargetTeamA + 1;
+        if (shotsOnTargetTeamA < shotsTeamA)
+            shotsOnTargetTeamA = shotsOnTargetTeamA + 1;
+        else
+            return;
+
         displayOnTargetTeamA(shotsOnTargetTeamA);
     }
 
@@ -188,7 +205,10 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void addOnTargetForTeamB(View view) {
-        shotsOnTargetTeamB = shotsOnTargetTeamB + 1;
+        if (shotsOnTargetTeamB < shotsTeamB)
+            shotsOnTargetTeamB = shotsOnTargetTeamB + 1;
+        else
+            return;
         displayOnTargetTeamB(shotsOnTargetTeamB);
     }
 
